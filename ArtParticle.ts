@@ -1,19 +1,20 @@
 namespace particles {
     /**
      * A single particle with position, velocity, and visual properties
+     * Named ArtParticle to avoid conflict with Arcade's built-in Particle class
      */
-    export class Particle {
-        // Position
+    export class ArtParticle {
+        // Position (use regular numbers, convert to int when rendering)
         public x: number;
         public y: number;
         
-        // Velocity
+        // Velocity (use regular numbers for simplicity)
         public vx: number;
         public vy: number;
         
         // Visual
         public color: number;
-        public alpha: number; // 0-255 (will need custom implementation)
+        public alpha: number; // 0-255
         
         // Lifecycle
         public age: number;
@@ -41,13 +42,15 @@ namespace particles {
 
         /**
          * Update particle physics
+         * @param dt Delta time in milliseconds
          */
         public update(dt: number): void {
             if (!this.alive) return;
 
-            // Update position
-            this.x += this.vx * dt;
-            this.y += this.vy * dt;
+            // Update position (dt is in ms, divide by 16.67 to normalize to ~60fps)
+            const frameScale = dt / 16.67;
+            this.x += this.vx * frameScale;
+            this.y += this.vy * frameScale;
 
             // Update age
             this.age += dt;
