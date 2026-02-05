@@ -1,6 +1,6 @@
 {
     "name": "particles",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A flexible particle emitter system for digital art in MakeCode Arcade",
     "license": "MIT",
     "dependencies": {
