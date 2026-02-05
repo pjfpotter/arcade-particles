@@ -9,7 +9,7 @@
     "files": [
         "README.md",
         "main.ts",
-        "particle.ts",
+        "ArtParticle.ts",
         "emitter.ts",
         "utils.ts"
     ],
