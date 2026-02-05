@@ -11,6 +11,7 @@ namespace particles {
         public emissionRate: number;
         private timeSinceLastEmit: number;
         private lastUpdateTime: number;
+        public forceEmit(): void {this.emit();}
 
         constructor(x: number, y: number, maxParticles: number = 50) {
             this.x = x;
