@@ -1,0 +1,28 @@
+{
+    "name": "particles",
+    "version": "0.0.1",
+    "description": "A flexible particle emitter system for digital art in MakeCode Arcade",
+    "license": "MIT",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts",
+        "particle.ts",
+        "emitter.ts",
+        "utils.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "1.12.30",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
