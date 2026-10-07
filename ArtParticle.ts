@@ -1,21 +1,21 @@
-namespace particles {
+namespace artParticles {
     /**
      * A single particle with position, velocity, and visual properties
-     * Named ArtParticle to avoid conflict with Arcade's built-in Particle class
+     * Named ArtParticle to avoid confusion with Arcade's built-in Particle class
      */
     export class ArtParticle {
         // Position (use regular numbers, convert to int when rendering)
         public x: number;
         public y: number;
-        
-        // Velocity (use regular numbers for simplicity)
+
+        // Velocity in pixels per second
         public vx: number;
         public vy: number;
-        
+
         // Visual
         public color: number;
-        public alpha: number; // 0-255
-        
+        public size: number; // side of the square in pixels
+
         // Lifecycle
         public age: number;
         public lifetime: number;
@@ -34,7 +34,7 @@ namespace particles {
             this.vx = 0;
             this.vy = 0;
             this.color = 1; // white
-            this.alpha = 255;
+            this.size = 1;
             this.age = 0;
             this.lifetime = 1000; // ms
             this.alive = false;
@@ -43,14 +43,17 @@ namespace particles {
         /**
          * Update particle physics
          * @param dt Delta time in milliseconds
+         * @param ax Acceleration in pixels per second squared
+         * @param ay Acceleration in pixels per second squared
          */
-        public update(dt: number): void {
+        public update(dt: number, ax: number, ay: number): void {
             if (!this.alive) return;
 
-            // Update position (dt is in ms, divide by 16.67 to normalize to ~60fps)
-            const frameScale = dt / 16.67;
-            this.x += this.vx * frameScale;
-            this.y += this.vy * frameScale;
+            const seconds = dt / 1000;
+            this.vx += ax * seconds;
+            this.vy += ay * seconds;
+            this.x += this.vx * seconds;
+            this.y += this.vy * seconds;
 
             // Update age
             this.age += dt;

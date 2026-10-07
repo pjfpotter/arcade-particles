@@ -1,6 +1,6 @@
 {
     "name": "particles",
-    "version": "0.0.7",
+    "version": "0.1.0",
     "description": "A flexible particle emitter system for digital art in MakeCode Arcade",
     "license": "MIT",
     "dependencies": {
@@ -8,10 +8,10 @@
     },
     "files": [
         "README.md",
-        "main.ts",
+        "utils.ts",
         "ArtParticle.ts",
         "emitter.ts",
-        "utils.ts"
+        "main.ts"
     ],
     "testFiles": [
         "test.ts"

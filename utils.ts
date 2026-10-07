@@ -1,8 +1,8 @@
-namespace particles {
+namespace artParticles {
     /**
      * Utility functions for particle effects
      */
-    
+
     /**
      * Linear interpolation between two values
      */
