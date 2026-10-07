@@ -46,7 +46,9 @@ GitHub URL, then use the Particles blocks or `artParticles.createEmitter(80, 60)
 
 `makecode build`/`serve` do not check block annotations. After changing any `//%` line,
 load the extension in the arcade.makecode.com editor and confirm the blocks appear and
-convert to and from JavaScript.
+convert to and from JavaScript. List parameters (`x.shadow=lists_create_with` with
+`x.defl=<block id>`) get item pickers but their starting values cannot be set, so a color
+list starts as transparent (0); handle that in code.
 
 The simulator is throttled when its browser tab is not in the foreground, so timing looks
 wrong in automated or background checks. Test states that persist rather than ones that

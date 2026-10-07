@@ -33,7 +33,7 @@ the values they were created with (gravity and z apply to all of them).
 | `setVelocity(vx, vy)` | exact velocity in pixels per second; replaces speed and direction and sets spread to 0 | |
 | `setSize(size)` | side of each square particle in pixels | 1 |
 | `setLifetime(min, max)` | how long particles live, in ms | 500 to 2000 |
-| `setColor(color)` / `setColors(list)` | palette colors to pick from at random | 1 to 14 |
+| `setColor(color)` / `setColors(list)` | palette colors to pick from at random; transparent is ignored | 1 to 14 |
 | `setGravity(x, y)` | constant pull in pixels per second squared | 0, 0 |
 | `setZ(z)` | drawing layer; sprites default to 0 | 50 |
 

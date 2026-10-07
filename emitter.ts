@@ -276,11 +276,12 @@ namespace artParticles {
         //% color.shadow=colorindexpicker color.defl=5
         //% group="Settings" weight=60
         public setColor(color: number): void {
-            this.colors = [color];
+            this.setColors([color]);
         }
 
         /**
-         * Set the colors new particles pick from at random
+         * Set the colors new particles pick from at random.
+         * Transparent entries are skipped.
          */
         //% blockId=artparticles_set_colors
         //% block="set $this colors to $colors"
@@ -288,8 +289,12 @@ namespace artParticles {
         //% colors.shadow=lists_create_with colors.defl=colorindexpicker
         //% group="Settings" weight=55
         public setColors(colors: number[]): void {
-            if (colors && colors.length > 0) {
-                this.colors = colors.slice();
+            if (!colors) return;
+            // Color 0 is transparent, and is what an untouched slot in the
+            // block holds; particles drawn with it would be invisible
+            const visible = colors.filter(c => c > 0);
+            if (visible.length > 0) {
+                this.colors = visible;
             }
         }
 

@@ -1,6 +1,6 @@
 # Particles extension spec
 
-Status: released as v0.1.0.
+Status: released as v0.1.0; current release is v0.1.1.
 
 ## Goal
 
@@ -28,7 +28,7 @@ Each has a block, a sensible default, and can be changed while running.
 | lifetime | min and max, in ms | 500 to 2000 |
 | direction | angle in degrees, 0 = right, 90 = down | 0 |
 | spread | total cone width in degrees | 360 |
-| colours | list of palette colours to pick from at random | 1 to 14 |
+| colours | list of palette colours to pick from at random; transparent (0) is ignored | 1 to 14 |
 | velocity | vx, vy in pixels per second; shorthand that sets speed and direction and sets spread to 0 | not set |
 | gravity | constant acceleration x, y in pixels per second squared | 0, 0 |
 | size | particle square side in pixels | 1 |
