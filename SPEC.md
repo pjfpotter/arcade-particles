@@ -1,6 +1,6 @@
 # Particles extension spec
 
-Status: released as v0.1.0; current release is v0.1.1.
+Status: released as v0.1.0; current release is v0.1.2.
 
 ## Goal
 
