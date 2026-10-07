@@ -1,4 +1,7 @@
 namespace particles {
+    // Above sprites (default z 0), below the HUD (scene.HUD_Z)
+    const PARTICLE_Z = 50;
+
     /**
      * Manages a pool of particles and emits them over time
      */
@@ -30,6 +33,12 @@ namespace particles {
             game.onUpdate(() => {
                 this.update();
             });
+
+            // Draw in the scene's render pass; pixels set during onUpdate
+            // are overwritten when the background is painted
+            scene.createRenderable(PARTICLE_Z, (target: Image, camera: scene.Camera) => {
+                this.render(target);
+            });
         }
 
         private update(): void {
@@ -52,8 +61,6 @@ namespace particles {
                     this.timeSinceLastEmit -= emitInterval;
                 }
             }
-
-            this.render();
         }
 
         private emit(): void {
@@ -74,14 +81,14 @@ namespace particles {
             particle.lifetime = 500 + Math.random() * 1500;
         }
 
-        private render(): void {
+        private render(target: Image): void {
             for (let p of this.particles) {
                 if (p.alive) {
                     const px = Math.floor(p.x);
                     const py = Math.floor(p.y);
                     
-                    if (px >= 0 && px < screen.width && py >= 0 && py < screen.height) {
-                        screen.setPixel(px, py, p.color);
+                    if (px >= 0 && px < target.width && py >= 0 && py < target.height) {
+                        target.setPixel(px, py, p.color);
                     }
                 }
             }
